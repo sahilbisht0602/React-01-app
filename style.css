@@ -23,17 +23,46 @@
 }
 
 .card {
-  width: 200px;
+  width: 250px;
+  height: 300px;
   padding: 10px;
   margin: 10px;
   border: 1px solid black;
+}
+
+.shimmar-card {
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
+  background: #cfc5c5;
 }
 
 .card > img {
   width: 100%;
 }
 
+.border-line {
+  width: 90%;
+  height: 20px;
+  margin: 15px;
+  background: #aaa1a1;
+}
+
 .resturant-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.resturant-detail {
+  display: flex;
+}
+
+.list-items {
+  margin: 70px;
+}
+
+a {
+  text-decoration: none;
+  color: #a48c8c;
 }
