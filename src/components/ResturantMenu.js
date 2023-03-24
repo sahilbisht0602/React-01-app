@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN } from "../constatnt";
+import Shimmer from "./Shimmer";
 
 const ResturantMenu = () => {
   const { id } = useParams();
-  const [resturant, setResturant] = useState(null);
+  const [resturant, setResturant] = useState([]);
   const [menu, setMenu] = useState({});
   useEffect(() => {
     getResturantData();
@@ -25,8 +26,9 @@ const ResturantMenu = () => {
     setResturant(data.data.cards[0].card.card.info);
   }
 
-  if (!resturant) return;
-  return (
+  return resturant.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="resturant-detail">
       <div>
         <h1>Resturant name - {resturant.name}</h1>

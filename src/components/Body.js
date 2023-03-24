@@ -14,6 +14,7 @@ const filterResturant = (searchText) => {
   return filterData;
 };
 const Body = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const updateFilterResturant = (filteredRestaurant) => {
     setFilteredResturant(filteredRestaurant);
   };
@@ -32,6 +33,7 @@ const Body = () => {
     } catch (e) {
       console.log(e);
     }
+    setIsLoading(false);
   }
 
   const [filteredRestaurant, setFilteredResturant] = useState(null);
@@ -50,7 +52,7 @@ const Body = () => {
 
     <h1>sorry no result</h1>;
   }
-  return allResturant.length === 0 ? (
+  return isLoading ? (
     <Shimmer />
   ) : (
     <>

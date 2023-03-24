@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Title = () => {
   return (
     <a href="/">
@@ -16,13 +17,13 @@ const HeaderComponent = () => {
       <Title />
       <div className="nav-links">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/about"}>About</Link>
+          <Link to={"/contact"}>Contact</Link>
+          <Link to={"/"}>Cart</Link>
         </ul>
       </div>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <button
           onClick={(e) => {
             setIsLoggedIn(!isLoggedIn);
@@ -38,7 +39,7 @@ const HeaderComponent = () => {
         >
           Login
         </button>
-      )}
+      )} */}
     </div>
   );
 };
