@@ -14,7 +14,7 @@ const Search = (props) => {
         }}
       />
       <button
-        className="rounded-lg bg-red-300 p-2 mx-5"
+        className="rounded-lg bg-red-300 p-2 mx-5  hover:bg-pink-600"
         onClick={() => {
           //filter restro
           props.filterResturant(searchText);
