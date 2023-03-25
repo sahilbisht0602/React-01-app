@@ -13,7 +13,7 @@ const useMenu = (id) => {
     );
     const data = await response.json();
     setMenu(
-      data.data?.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
+      data.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map(
         (menuItem) => {
           return menuItem.card.info.name;
         }

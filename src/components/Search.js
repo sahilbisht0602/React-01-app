@@ -3,8 +3,9 @@ import { filterResturant } from "../constatnt";
 const Search = (props) => {
   const [searchText, setSearchText] = useState();
   return (
-    <div className="search-container">
+    <div className="search-container bg-green-300 mt-5 p-5 shadow-lg">
       <input
+        className="p-2 w-[350]"
         type="text"
         placeholder="search here"
         value={searchText}
@@ -13,7 +14,7 @@ const Search = (props) => {
         }}
       />
       <button
-        className="btn-search"
+        className="rounded-lg bg-red-300 p-2 mx-5"
         onClick={() => {
           //filter restro
           props.filterResturant(searchText);

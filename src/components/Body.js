@@ -33,7 +33,7 @@ const Body = () => {
   ) : (
     <>
       <Search filterResturant={filterResturantHandler} />
-      <div className="resturant-list">
+      <div className="flex flex-wrap">
         {filteredRestaurant?.map((restaurant) => {
           return (
             <Link

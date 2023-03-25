@@ -7,7 +7,7 @@ const ResturantCard = ({
   cloudinaryImageId,
 }) => {
   return (
-    <div className="card">
+    <div className="card w-[300] bg-yellow-100 mx-5 my-2 shadow-lg border-radius rounded-lg">
       <img src={IMG_CDN + cloudinaryImageId} />
       <h2>{name}</h2>
       <h4>{cuisines}</h4>
