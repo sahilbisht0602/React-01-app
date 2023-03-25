@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { filterResturant } from "../constatnt";
 const Search = (props) => {
   const [searchText, setSearchText] = useState();
   return (
@@ -13,11 +14,10 @@ const Search = (props) => {
       />
       <button
         className="btn-search"
-        onClick={(e) => {
+        onClick={() => {
           //filter restro
-          const data = props.filterResturant(searchText);
+          props.filterResturant(searchText);
           // update the UI
-          props.updateResturantHandler(data);
         }}
       >
         Search

@@ -577,3 +577,13 @@ export const resturantList = [
     subtype: "basic",
   },
 ];
+
+export const filterResturant = (searchText) => {
+  const filterData = allResturant.filter((restro) =>
+    restro.data.name.toLowerCase().includes(searchText?.toLowerCase())
+  );
+  setResturant(filterData);
+};
+
+export const ALL_RESTRO =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING";
