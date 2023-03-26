@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { filterResturant } from "../constatnt";
+import UserContext from "./utils/UserContext";
+import UserContext from "./utils/UserContext";
 const Search = (props) => {
   const [searchText, setSearchText] = useState();
+  const { user, setUser } = useContext(UserContext);
   return (
     <div className="search-container bg-green-300 mt-5 p-5 shadow-lg">
       <input
@@ -23,6 +26,25 @@ const Search = (props) => {
       >
         Search
       </button>
+      <input
+        value={user.name}
+        onChange={(e) => {
+          setUser({
+            ...user,
+            name: e.target.value,
+          });
+        }}
+      />
+      <input
+        className="ml-2"
+        value={user.location}
+        onChange={(e) => {
+          setUser({
+            ...user,
+            location: e.target.value,
+          });
+        }}
+      />
     </div>
   );
 };
