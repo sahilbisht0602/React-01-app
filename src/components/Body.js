@@ -25,8 +25,6 @@ const Body = () => {
         <h1>Sorry no data search again!!</h1>
       </>
     );
-
-    <h1>sorry no result</h1>;
   }
   return isLoading ? (
     <Shimmer />

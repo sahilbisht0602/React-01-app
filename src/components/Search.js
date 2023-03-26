@@ -2,9 +2,11 @@ import { useContext, useState } from "react";
 import { filterResturant } from "../constatnt";
 import UserContext from "./utils/UserContext";
 import UserContext from "./utils/UserContext";
+import CartContext from "./utils/CartContext";
 const Search = (props) => {
   const [searchText, setSearchText] = useState();
   const { user, setUser } = useContext(UserContext);
+
   return (
     <div className="search-container bg-green-300 mt-5 p-5 shadow-lg">
       <input

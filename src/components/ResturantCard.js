@@ -9,7 +9,6 @@ const ResturantCard = ({
   cloudinaryImageId,
 }) => {
   const { user } = useContext(UserContext);
-  console.log(user);
   return (
     <div className="card w-[300] bg-yellow-100 mx-5 my-2 border-radius rounded-lg hover:shadow-lg hover:bg-yellow-300">
       <img src={IMG_CDN + cloudinaryImageId} />

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import cartContext from "./utils/CartContext";
 const Title = () => {
   return (
     <a href="/">
@@ -12,6 +13,7 @@ const Title = () => {
 };
 const HeaderComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { item } = useContext(cartContext);
   return (
     <div className="header flex items-center justify-between p-2 bg-green-400 shadow-lg">
       <Title />
@@ -26,8 +28,8 @@ const HeaderComponent = () => {
           <Link className="mx-4" to={"/contact"}>
             Contact
           </Link>
-          <Link className="mx-4" to={"/"}>
-            Cart
+          <Link className="mx-4" to={"/cart"}>
+            Cart {item.length}
           </Link>
         </ul>
       </div>

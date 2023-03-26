@@ -9,16 +9,22 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import ResturantMenu from "./components/ResturantMenu";
 import UserContext from "./components/utils/UserContext";
+import CartContext from "./components/utils/CartContext";
+import Cart from "./components/Cart";
 const AppLayout = () => {
   const [user, setUser] = useState({
     name: "sahil",
     location: "uttrakhand",
   });
+
+  const [item, setItem] = useState([]);
   return (
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
-      <Header />
-      {<Outlet />}
-      <Footer />
+    <UserContext.Provider value={{ user, setUser }}>
+      <CartContext.Provider value={{ item, setItem }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </CartContext.Provider>
     </UserContext.Provider>
   );
 };
@@ -33,6 +39,7 @@ const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/resturant/:id", element: <ResturantMenu /> },
+      { path: "/cart", element: <Cart /> },
     ],
   },
 ]);

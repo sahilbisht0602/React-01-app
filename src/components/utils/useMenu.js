@@ -15,7 +15,7 @@ const useMenu = (id) => {
     setMenu(
       data.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map(
         (menuItem) => {
-          return menuItem.card.info.name;
+          return menuItem;
         }
       )
     );

@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN } from "../constatnt";
 import Shimmer from "./Shimmer";
 import useMenu from "./utils/useMenu";
-
+import CartContext from "./utils/CartContext";
 const ResturantMenu = () => {
   const { id } = useParams();
 
   const [resturant, menu] = useMenu(id);
-
+  console.log(menu);
+  const { item, setItem } = useContext(CartContext);
+  const addToCartHandler = (item) => {
+    setItem((prev) => [...prev, item]);
+  };
   return resturant.length === 0 ? (
     <Shimmer />
   ) : (
@@ -32,7 +36,17 @@ const ResturantMenu = () => {
           </span>
           <ul className="mt-7 text-lg">
             {menu.map((item) => (
-              <li>{item}</li>
+              <>
+                <li>{item.card.info.name}</li>
+                <button
+                  className="bg-pink-200 p-2 rounded-lg ml-2"
+                  onClick={() => {
+                    addToCartHandler(item);
+                  }}
+                >
+                  Add to cart
+                </button>
+              </>
             ))}
           </ul>
         </h1>
