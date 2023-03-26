@@ -4,14 +4,20 @@ import { IMG_CDN } from "../constatnt";
 import Shimmer from "./Shimmer";
 import useMenu from "./utils/useMenu";
 import CartContext from "./utils/CartContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "./utils/cartSlice";
 const ResturantMenu = () => {
   const { id } = useParams();
 
   const [resturant, menu] = useMenu(id);
   console.log(menu);
-  const { item, setItem } = useContext(CartContext);
+  // const { item, setItem } = useContext(CartContext);
+  const dispatch = useDispatch();
   const addToCartHandler = (item) => {
     setItem((prev) => [...prev, item]);
+  };
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
   };
   return resturant.length === 0 ? (
     <Shimmer />
@@ -41,7 +47,7 @@ const ResturantMenu = () => {
                 <button
                   className="bg-pink-200 p-2 rounded-lg ml-2"
                   onClick={() => {
-                    addToCartHandler(item);
+                    handleAddItem(item);
                   }}
                 >
                   Add to cart

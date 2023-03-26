@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import cartContext from "./utils/CartContext";
+import { useSelector } from "react-redux";
 const Title = () => {
   return (
     <a href="/">
@@ -12,6 +13,7 @@ const Title = () => {
   );
 };
 const HeaderComponent = () => {
+  const cartItems = useSelector((store) => store.cart.items);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { item } = useContext(cartContext);
   return (
@@ -29,7 +31,7 @@ const HeaderComponent = () => {
             Contact
           </Link>
           <Link className="mx-4" to={"/cart"}>
-            Cart {item.length}
+            Cart {cartItems.length}
           </Link>
         </ul>
       </div>

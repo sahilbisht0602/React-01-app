@@ -11,6 +11,8 @@ import ResturantMenu from "./components/ResturantMenu";
 import UserContext from "./components/utils/UserContext";
 import CartContext from "./components/utils/CartContext";
 import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import store from "./components/utils/store";
 const AppLayout = () => {
   const [user, setUser] = useState({
     name: "sahil",
@@ -19,13 +21,15 @@ const AppLayout = () => {
 
   const [item, setItem] = useState([]);
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <CartContext.Provider value={{ item, setItem }}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </CartContext.Provider>
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ user, setUser }}>
+        <CartContext.Provider value={{ item, setItem }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </CartContext.Provider>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
