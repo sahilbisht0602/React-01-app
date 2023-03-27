@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import FoodCard from "./FoodCard";
 import cartContext from "./utils/CartContext";
+import { useSelector } from "react-redux";
 const Cart = () => {
-  const { item, setItem } = useContext(cartContext);
-  console.log(item);
+  const item = useSelector((store) => store.cart.items);
   return (
     <>
       <h1 className="text-4xl">Cart component-{item.length}</h1>
